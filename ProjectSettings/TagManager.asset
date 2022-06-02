@@ -10,6 +10,7 @@ TagManager:
   - BackCollider
   - LeftCollider
   - RightCollider
+  - LevelController
   layers:
   - Default
   - TransparentFX
