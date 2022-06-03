@@ -128,7 +128,7 @@ MonoBehaviour:
   - {fileID: 17}
   - {fileID: 15}
   m_Selected: 2
-  m_LastSelected: 1
+  m_LastSelected: 0
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 70
+  controlID: 22
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 49
+  controlID: 62
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -318,22 +318,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/TextMesh Pro
+    - Assets/Models
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/TextMesh Pro
+  - Assets/Models
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Documents\Unity Projects\Cube-Planet
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 646a0000
-    m_LastClickedID: 27236
-    m_ExpandedIDs: 00000000cc5a0000646a000000ca9a3b
+    m_SelectedIDs: 265d0000
+    m_LastClickedID: 23846
+    m_ExpandedIDs: 00000000025d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -361,7 +361,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000cc5a0000
+    m_ExpandedIDs: 00000000025d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -386,8 +386,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 1a27ffff
-    m_LastClickedInstanceID: -55526
+    m_SelectedInstanceIDs: 44f8ffff
+    m_LastClickedInstanceID: -1980
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -491,23 +491,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 9044ffff
-      m_LastClickedID: -47984
-      m_ExpandedIDs: 2427ffff1c41ffff36fbffff6c5a00008a5a0000
+      m_SelectedIDs: 40f8ffff
+      m_LastClickedID: -1984
+      m_ExpandedIDs: 44f8ffff10fbffff8e5a0000f45a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: chr_knight
+        m_OriginalName: chr_knight
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -1980
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -606,9 +606,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -112, y: 25.599998}
+      snapOffset: {x: 67.5, y: 86}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 1
+      snapCorner: 0
       id: Orientation
       index: 0
       layout: 4
@@ -743,9 +743,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 568.0129, y: 114.330864, z: 51.535313}
+    m_Target: {x: -0.1788378, y: 3.1600862, z: 1.1768724}
     speed: 2
-    m_Value: {x: 568.0129, y: 114.330864, z: 51.535313}
+    m_Value: {x: -0.1788378, y: 3.1600862, z: 1.1768724}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -792,13 +792,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.022809299, y: 0.00087573286, z: -0.00001718556, w: -0.9997846}
+    m_Target: {x: -0.123981565, y: -0.089800425, z: 0.011266314, w: -0.9881956}
     speed: 2
-    m_Value: {x: -0.02280827, y: 0.0008756934, z: -0.000017184786, w: -0.9997395}
+    m_Value: {x: -0.1239758, y: -0.08979625, z: 0.011265791, w: -0.98814964}
   m_Size:
-    m_Target: 293.75836
+    m_Target: 1.0483962
     speed: 2
-    m_Value: 293.75836
+    m_Value: 1.0483962
   m_Ortho:
     m_Target: 0
     speed: 2
