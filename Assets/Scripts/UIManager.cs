@@ -7,18 +7,23 @@ public class UIManager : MonoBehaviour
 {   
     [SerializeField]
     private TextMeshProUGUI barrelCounter;
+    [SerializeField]
+    private TextMeshProUGUI rotationsCounter;
 
     [SerializeField]
     private string winMessageText;
     [SerializeField]
     private TextMeshProUGUI winMessageTMProUI;
 
-    private int _barrels = 0;
-
     public static UIManager Instance { get; private set; } // create static singleton
     public void UpdateBarrelDisplayUI(int barrels)
     {
         barrelCounter.text = "Barrels: " + barrels+ "/3"; 
+    }
+
+    public void UpdateRotationsDisplayUI(int rotations)
+    {
+        rotationsCounter.text = "Rotations: " + rotations; 
     }
 
     public void WinMessage()
@@ -35,5 +40,6 @@ public class UIManager : MonoBehaviour
     void Start()
     { 
         barrelCounter.text = "Barrels: 0/3";
+        rotationsCounter.text = "Rotations: 0";
     }
 }

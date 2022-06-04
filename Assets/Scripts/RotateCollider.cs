@@ -38,6 +38,10 @@ public class RotateCollider : MonoBehaviour
     void Assemble(Vector3 dir) {
         Vector3 anchor = planetContainer.transform.position;
         Vector3 axis = Vector3.Cross(Vector3.up, dir);
+        
+        // triggers level controller to track the rotations 
+        LevelController.Instance.addRotation();
+        
         StartCoroutine(Roll(anchor, axis));
     }
 

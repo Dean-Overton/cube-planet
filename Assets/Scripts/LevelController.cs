@@ -8,6 +8,8 @@ public class LevelController : MonoBehaviour
     public static LevelController Instance { get; private set; }
     private int _barrels = 0;
 
+    private int _rotations = 0;
+
     void Awake(){
         // initialise singleton instance
         if (Instance == null) Instance = this;
@@ -21,5 +23,10 @@ public class LevelController : MonoBehaviour
             UIManager.Instance.WinMessage();
             Time.timeScale = 0;
         }
+    }
+
+    public void addRotation(){
+        ++_rotations;
+        UIManager.Instance.UpdateRotationsDisplayUI(_rotations);
     }
 }
