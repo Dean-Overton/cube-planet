@@ -11,3 +11,10 @@ Inspiration:
 <picture>
   <img alt="Inspiration" width="300" src="https://i.pinimg.com/originals/c2/cd/f7/c2cdf71ca50f2760b84de9b1c836301b.jpg">
 </picture>
+
+### Add new level
+
+1) Create Scene
+2) Assets/Levels/*TheThemeTheLevelIs* - Add the scene name and level number
+3) Add scene to File/BuildSettings 'ScenesInBuild'.
+
