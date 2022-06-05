@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -205,46 +205,39 @@ PrefabInstance:
       propertyPath: m_Name
       value: TileWaterTShape
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 714da6a561029804e87e4cd17fca3952,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 714da6a561029804e87e4cd17fca3952, type: 3}
---- !u!1 &28561337 stripped
+--- !u!1 &12028787 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: de9e1fde8479a8a4caec02cfa8c60ca4,
+  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 714da6a561029804e87e4cd17fca3952,
     type: 3}
-  m_PrefabInstance: {fileID: 1244564468}
+  m_PrefabInstance: {fileID: 12028786}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &12028788
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12028787}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2432090755550338912, guid: 714da6a561029804e87e4cd17fca3952, type: 3}
 --- !u!4 &28561338 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: de9e1fde8479a8a4caec02cfa8c60ca4,
     type: 3}
   m_PrefabInstance: {fileID: 1244564468}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &28561339
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 28561337}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1023076, y: 3.5062122, z: 0.67645824}
-  m_Center: {x: 0.0014859438, y: 1.7531061, z: -0.3011065}
---- !u!65 &28561340
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 28561337}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.923945, y: 1.6405878, z: 1.6812764}
-  m_Center: {x: -0.019255638, y: 2.679706, z: -0.46473473}
 --- !u!1 &31941017
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,6 +922,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TileWater
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b2e7c1959e3375e45b5b7e9497463f5b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e7c1959e3375e45b5b7e9497463f5b, type: 3}
 --- !u!1 &348885733
@@ -1538,6 +1536,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TileWater
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b2e7c1959e3375e45b5b7e9497463f5b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e7c1959e3375e45b5b7e9497463f5b, type: 3}
 --- !u!1001 &873016562
@@ -1621,6 +1624,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TileGrass
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 44d6d9c056837734c8691f35fc038d20,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44d6d9c056837734c8691f35fc038d20, type: 3}
@@ -2066,6 +2074,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de9e1fde8479a8a4caec02cfa8c60ca4, type: 3}
+--- !u!1 &1244564469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: de9e1fde8479a8a4caec02cfa8c60ca4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1244564468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1244564470
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244564469}
+  m_Material: {fileID: 13400000, guid: 6503140d335aa274891235bd1b77773a, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2432090755550338912, guid: de9e1fde8479a8a4caec02cfa8c60ca4, type: 3}
 --- !u!1001 &1328770201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2147,6 +2175,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TileWaterWithBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a81137a65d7d2434d98ce9c449756a14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a81137a65d7d2434d98ce9c449756a14, type: 3}
@@ -2540,6 +2573,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TileWaterTShape (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 714da6a561029804e87e4cd17fca3952,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 714da6a561029804e87e4cd17fca3952, type: 3}
