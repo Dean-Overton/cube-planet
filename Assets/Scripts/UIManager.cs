@@ -26,9 +26,9 @@ public class UIManager : MonoBehaviour
         rotationsCounter.text = "Rotations: " + rotations; 
     }
 
-    public void WinMessage()
+    public void WinMessage(int stars)
     {
-        winMessageTMProUI.text = winMessageText; 
+        winMessageTMProUI.text = winMessageText + ", "+stars+" stars"; 
     }
 
     void Awake(){
