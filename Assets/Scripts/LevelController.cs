@@ -34,7 +34,7 @@ public class LevelController : MonoBehaviour
                 stars = 1; 
             }
 
-            UIManager.Instance.WinMessage(stars);
+            UIManager.Instance.LevelCompletePopup(stars, _rotations, 1);
             return true;
         }
         return false;
@@ -50,7 +50,7 @@ public class LevelController : MonoBehaviour
     }
 
     public void addRotation(){
-        ++_rotations;
+        _rotations++;
         UIManager.Instance.UpdateRotationsDisplayUI(_rotations);
     }
 }
