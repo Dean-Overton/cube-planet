@@ -10,10 +10,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI rotationsCounter;
 
-    [SerializeField]
-    private string winMessageText;
-    [SerializeField]
-    private TextMeshProUGUI winMessageTMProUI;
+    [SerializeField] private Animator levelCompletePopupAnimator;
+    [SerializeField] private TMP_Text levelCompletePopupRotCount;
+    [SerializeField] private TextMeshProUGUI winMessageTMProUI;
 
     public static UIManager Instance { get; private set; } // create static singleton
     public void UpdateBarrelDisplayUI(int barrels)
@@ -26,9 +25,14 @@ public class UIManager : MonoBehaviour
         rotationsCounter.text = "Rotations: " + rotations; 
     }
 
-    public void WinMessage(int stars)
+    public void LevelCompletePopup(int stars, int rotations, int level)
     {
-        winMessageTMProUI.text = winMessageText + ", "+stars+" stars"; 
+        levelCompletePopupAnimator.gameObject.SetActive(true);
+
+        levelCompletePopupRotCount.text = "Rotations: " + rotations;
+
+        winMessageTMProUI.text = string.Format("Nice Work! Level {0} Complete!", level); 
+        levelCompletePopupAnimator.SetInteger("Stars", stars);
     }
 
     void Awake(){
