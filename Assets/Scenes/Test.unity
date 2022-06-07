@@ -655,6 +655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetContainer: {fileID: 0}
+  player: {fileID: 941930218}
   _rollSpeed: 5
 --- !u!65 &164426622
 BoxCollider:
@@ -885,6 +886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetContainer: {fileID: 0}
+  player: {fileID: 941930218}
   _rollSpeed: 5
 --- !u!65 &292647789
 BoxCollider:
@@ -980,6 +982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetContainer: {fileID: 0}
+  player: {fileID: 941930218}
   _rollSpeed: 5
 --- !u!65 &348885736
 BoxCollider:
@@ -1806,6 +1809,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65e04b64193d9504eb9adbd930726644, type: 3}
+--- !u!1 &941930218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7772347226610344611, guid: bafe6f37b03ed5c4f92469a5756f7997,
+    type: 3}
+  m_PrefabInstance: {fileID: 7772347226608452410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &954087527 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b2bb8fa8de4f0594eaae54a40bb7ae2b,
@@ -2298,6 +2307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetContainer: {fileID: 0}
+  player: {fileID: 941930218}
   _rollSpeed: 5
 --- !u!65 &1129568330
 BoxCollider:
@@ -5208,6 +5218,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7772347226610344612, guid: bafe6f37b03ed5c4f92469a5756f7997,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7772347226610344614, guid: bafe6f37b03ed5c4f92469a5756f7997,
         type: 3}
       propertyPath: m_RootOrder
@@ -5262,6 +5277,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806521435082064231, guid: bafe6f37b03ed5c4f92469a5756f7997,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806521435082064231, guid: bafe6f37b03ed5c4f92469a5756f7997,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bafe6f37b03ed5c4f92469a5756f7997, type: 3}

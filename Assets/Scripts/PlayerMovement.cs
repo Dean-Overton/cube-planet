@@ -26,19 +26,27 @@ public class PlayerMovement : MonoBehaviour
             //update the position
             targetPosition = transform.position+Vector3.left;
             targetOrientation = Quaternion.Euler(0,90,0);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime*movementSpeed);
+
         } else if(horizontalInput > 0){
             //update the position
             targetPosition = transform.position+Vector3.right;
             targetOrientation = Quaternion.Euler(0,-90,0);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime*movementSpeed);
         } else if(verticalInput > 0){
             //update the position
             targetPosition = transform.position+Vector3.forward;
             targetOrientation = Quaternion.Euler(0,180,0);
+            
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime*movementSpeed);
+
         } else if(verticalInput < 0){
             //update the position
             targetPosition = transform.position+Vector3.back;
             targetOrientation = Quaternion.Euler(Vector3.zero);
+           
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime*movementSpeed);
+
         }
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime*movementSpeed);
     }
 }
