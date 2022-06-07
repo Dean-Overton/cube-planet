@@ -19,6 +19,11 @@ public class PlayerMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
+        if (Input.touchCount > 0){
+            horizontalInput = Input.touches[0].deltaPosition.x;
+            verticalInput = Input.touches[0].deltaPosition.y;
+        }
+
         //TODO: Slerp towards target orientation
         transform.rotation = targetOrientation;
 
