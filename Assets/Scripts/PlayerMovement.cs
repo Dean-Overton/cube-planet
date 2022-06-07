@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {   
     [SerializeField]
     private float movementSpeed = 1;
+    [SerializeField] private FloatingJoystick _joystick;
 
     private void Start()
     {
@@ -16,8 +17,18 @@ public class PlayerMovement : MonoBehaviour
     Quaternion targetOrientation = Quaternion.Euler(Vector3.zero);
     void Update()
     {
+        Vector3 direction = Vector3.forward * _joystick.Vertical + Vector3.right * _joystick.Horizontal;
+
+#if UNITY_EDITOR
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
+#else
+        float horizontalInput = _joystick.Horizontal;
+        float verticalInput = _joystick.Vertical;
+
+        horizontalInput = Mathf.Abs(verticalInput) > Mathf.Abs(horizontalInput) ? 0 : horizontalInput;
+        verticalInput = Mathf.Abs(verticalInput) < Mathf.Abs(horizontalInput) ? 0 : verticalInput;
+#endif
 
         //TODO: Slerp towards target orientation
         transform.rotation = targetOrientation;
