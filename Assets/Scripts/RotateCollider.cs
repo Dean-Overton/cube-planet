@@ -5,15 +5,11 @@ using UnityEngine;
 public class RotateCollider : MonoBehaviour
 {
     [SerializeField]
-    GameObject targetPosition;
-    [SerializeField]
     GameObject planetContainer;
 
     [SerializeField] private float _rollSpeed = 5;
-    private bool _isMoving;
 
     void Start(){
-        targetPosition = GameObject.FindGameObjectWithTag("UpIndicator");
         planetContainer = GameObject.FindGameObjectWithTag("PlanetContainer");
     }
 
@@ -47,11 +43,9 @@ public class RotateCollider : MonoBehaviour
 
     private IEnumerator Roll(Vector3 anchor, Vector3 axis) {
         Debug.Log("Rolling");
-        _isMoving = true;
         for (int i = 0; i < 90 / _rollSpeed; i++) {
             planetContainer.transform.RotateAround(anchor, axis, _rollSpeed);
             yield return new WaitForSeconds(0.01f);
         }
-        _isMoving = false;
     }
 }
