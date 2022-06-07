@@ -40,6 +40,16 @@ public class UIManager : MonoBehaviour
         if (Instance == null) Instance = this;
     } 
 
+    public void RestartScene(){
+        SceneManagerScript.Instance.RestartScene();
+    }
+    public void LoadLevelMenu(){
+        SceneManagerScript.Instance.ChangeScene("MainMenu");
+    }
+    public void LoadNextLevel(){
+        SceneManagerScript.Instance.LoadNextLevel();
+    }
+
     // Start is called before the first frame update
     void Start()
     { 

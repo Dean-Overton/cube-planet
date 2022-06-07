@@ -10,6 +10,14 @@ public class SceneManagerScript : MonoBehaviour
             Destroy(this.gameObject);
         else
             Instance = this;
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+    public void RestartScene(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void LoadNextLevel(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
     public void ChangeScene (int sceneIndex) {
         // TODO: Play Smooth Transition animation
