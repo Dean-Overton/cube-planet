@@ -11,15 +11,18 @@ public class SpaceshipCollision : MonoBehaviour
     [SerializeField]
     int _speed = 5;
     [SerializeField] Vector3 landingPoint;
-    [SerializeField] GameObject player;
+    [SerializeField] GameObject _player;
+    GameObject _exhaust;
 
     void Start(){
         // dynamically lets you place a rocket which will land
         // and spawn the player
         // NOTE: the player still needs to be place around the rocket
         // somewhere in the scene
-        player=GameObject.FindGameObjectWithTag("Player");
-        player.SetActive(false);
+        _player=GameObject.FindGameObjectWithTag("Player");
+        _player.SetActive(false);
+        
+        _exhaust = GameObject.Find("Exhaust");
 
         // saves current point as the landing point
         landingPoint = transform.position;
@@ -41,7 +44,8 @@ public class SpaceshipCollision : MonoBehaviour
     void Update(){
         if(Vector3.Distance(transform.position, landingPoint) < 0.1){
             _landing = false;
-            player.SetActive(true);
+            _player.SetActive(true);
+            _exhaust.SetActive(false);
         }
         
         if(_landing){
@@ -52,6 +56,7 @@ public class SpaceshipCollision : MonoBehaviour
         if(_takeOff){
             // flies up
             transform.position += new Vector3(0, _speed * Time.deltaTime, 0);
+            _exhaust.SetActive(true);
         }
     }
 }
