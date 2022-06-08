@@ -33,18 +33,26 @@ public static class SaveLoad {
         }else{
             // if it does not contain the key add it
             savedLevels[level.levelNumber] = level;
-            Level.current = level;
-            Debug.Log("saving:" + level);
         }
-        // Debug.Log(Application.persistentDataPath);
-        // if(Level.current.levelNumber == level.levelNumber){
-        //     // unlock next level
-        //     Level nextLevel = new Level();
-        //     nextLevel.unlocked = true;
-        //     nextLevel.levelNumber = level.levelNumber++;
-        //     Level.current = nextLevel;
-        //     savedLevels[nextLevel.levelNumber] = nextLevel;
-        // }
+        
+        int nextLevelNumber = level.levelNumber+1;
+        Level nextLevel = (Level)savedLevels[nextLevelNumber];
+        
+        // if the next level does not exist yet add it
+        if(nextLevel == null){
+            nextLevel = new Level();
+            nextLevel.unlocked = false;
+            nextLevel.levelNumber = nextLevelNumber;
+        }
+        
+        // if the next level is not unlocked then unlock it
+        if(!nextLevel.unlocked){
+            nextLevel.unlocked = true;
+            nextLevel.levelNumber = nextLevelNumber;
+            savedLevels[nextLevel.levelNumber] = nextLevel;
+        }
+
+        Debug.Log(Application.persistentDataPath);
 
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create (Application.persistentDataPath + "/savedLevels.goofy");
@@ -58,6 +66,9 @@ public static class SaveLoad {
             FileStream file = File.Open(Application.persistentDataPath + "/savedLevels.goofy", FileMode.Open);
             SaveLoad.savedLevels = (Hashtable)bf.Deserialize(file);
             file.Close();
+            
+            Debug.Log(Application.persistentDataPath);
+
             foreach(int key in SaveLoad.savedLevels.Keys)
             {   
                 Level level = (Level)SaveLoad.savedLevels[key];

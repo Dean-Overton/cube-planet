@@ -20,21 +20,33 @@ public class LevelSelect : MonoBehaviour
         }
 
         foreach(SceneObject sceneLevel in themeObject.levels) {
-            GameObject go = Instantiate(levelPrefab, scrollParent);
-            go.transform.GetChild(0).GetComponent<TMP_Text>().text = sceneLevel.levelNumber.ToString();
             Level level = (Level)SaveLoad.savedLevels[sceneLevel.levelNumber];
+            GameObject go;
             
             if(level == null){
+                Debug.Log("No saved data for: "+sceneLevel.levelNumber);
                 level = new Level();
-                level.levelNumber = 1;
-                Debug.Log("loaded level is null");
+                level.levelNumber = sceneLevel.levelNumber;
+                if(sceneLevel.levelNumber != 1){
+                    level.unlocked = false;
+                }else{
+                    level.unlocked = true;
+                    Level.current = level;
+                }
             }
 
-            SetGameObjectProgress(go, level);
+            if(level.unlocked){
+                go = Instantiate(levelPrefab, scrollParent);
+                go.transform.GetChild(0).GetComponent<TMP_Text>().text = sceneLevel.levelNumber.ToString();
             
-            go.GetComponent<Button>().onClick.AddListener(
-                delegate { SceneManagerScript.Instance.ChangeScene(sceneLevel.sceneName); }
-            );
+                SetGameObjectProgress(go, level);
+            
+                go.GetComponent<Button>().onClick.AddListener(
+                    delegate { SceneManagerScript.Instance.ChangeScene(sceneLevel.sceneName); }
+                );
+            }else{
+                go = Instantiate(lockedLevelPrefab, scrollParent);
+            }
 
             levelButtons.Add(go);
         }

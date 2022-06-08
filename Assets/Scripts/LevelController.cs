@@ -59,6 +59,7 @@ public class LevelController : MonoBehaviour
         current.starCount = _stars;
         current.spaceJunk = _spaceJunk;
         current.levelNumber = _levelNumber;
+        current.unlocked = true;
         Debug.Log(string.Format("{0}, {1}, {2}", _stars, _spaceJunk, _levelNumber));
         SaveLoad.Save(current);
     }

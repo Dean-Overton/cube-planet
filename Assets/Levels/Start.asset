@@ -17,3 +17,5 @@ MonoBehaviour:
   levels:
   - sceneName: Test
     levelNumber: 1
+  - sceneName: Level2
+    levelNumber: 2
