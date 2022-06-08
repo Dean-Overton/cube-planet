@@ -15,6 +15,7 @@ public class SpaceshipCollision : MonoBehaviour
     GameObject _exhaust;
 
     void Start(){
+        // TODO: this should be done with an animator
         // dynamically lets you place a rocket which will land
         // and spawn the player
         // NOTE: the player still needs to be place around the rocket
@@ -42,7 +43,7 @@ public class SpaceshipCollision : MonoBehaviour
     }
 
     void Update(){
-        if(Vector3.Distance(transform.position, landingPoint) < 0.1){
+        if(_landing && Vector3.Distance(transform.position, landingPoint) < 0.1){
             _landing = false;
             _player.SetActive(true);
             _exhaust.SetActive(false);

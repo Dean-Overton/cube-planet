@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
+    enum CollectibleType {
+        Barrel,
+        SpaceJunk,
+    }
+
+    [SerializeField] CollectibleType collectibleType;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +32,14 @@ public class Collectible : MonoBehaviour
         Destroy(gameObject);
 
         // increase a counter in UI
-        LevelController.Instance.addBarrel();
+        switch(collectibleType){
+            case CollectibleType.Barrel:
+                LevelController.Instance.addBarrel();
+                break;
+            case CollectibleType.SpaceJunk:
+                LevelController.Instance.AddSpaceJunk();
+                break;
+        }
+        
     }
 }

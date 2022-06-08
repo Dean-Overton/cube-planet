@@ -5,4 +5,6 @@ public class Level
     public int starCount;
     public bool unlocked;
     public int levelNumber;
+
+    public int spaceJunk;
 }
