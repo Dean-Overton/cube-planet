@@ -10,7 +10,7 @@ public class LevelController : MonoBehaviour
     private int _rotations = 0;
     private int _spaceJunk = 0;
     private int _spaceJunkTotal = 0;
-    [SerializeField] private int _levelNumber = 0;
+    [SerializeField] private int _levelNumber = 1;
     [SerializeField] int threeStarRotations;
     [SerializeField] int twoStarRotations;
     [SerializeField] int oneStarRotations;
@@ -59,6 +59,7 @@ public class LevelController : MonoBehaviour
         current.starCount = _stars;
         current.spaceJunk = _spaceJunk;
         current.levelNumber = _levelNumber;
+        Debug.Log(string.Format("{0}, {1}, {2}", _stars, _spaceJunk, _levelNumber));
         SaveLoad.Save(current);
     }
 

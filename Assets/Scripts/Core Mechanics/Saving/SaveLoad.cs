@@ -34,8 +34,9 @@ public static class SaveLoad {
             // if it does not contain the key add it
             savedLevels[level.levelNumber] = level;
             Level.current = level;
+            Debug.Log("saving:" + level);
         }
-
+        // Debug.Log(Application.persistentDataPath);
         // if(Level.current.levelNumber == level.levelNumber){
         //     // unlock next level
         //     Level nextLevel = new Level();
@@ -57,6 +58,13 @@ public static class SaveLoad {
             FileStream file = File.Open(Application.persistentDataPath + "/savedLevels.goofy", FileMode.Open);
             SaveLoad.savedLevels = (Hashtable)bf.Deserialize(file);
             file.Close();
+            foreach(int key in SaveLoad.savedLevels.Keys)
+            {   
+                Level level = (Level)SaveLoad.savedLevels[key];
+                int level_number = level.levelNumber;
+                Debug.Log(string.Format("{0}: {1}", key, level_number));
+            }
         }
+
 }
 }
