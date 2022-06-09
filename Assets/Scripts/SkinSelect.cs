@@ -11,6 +11,7 @@ public class SkinSelect : MonoBehaviour
     [SerializeField] private GameObject lockedSkinPrefab;
     [SerializeField] private Transform scrollParent;
     private List<GameObject> skins = new List<GameObject>();
+    private static int selectedSkinIndex;
     void OnEnable()
     {
         SaveLoad.Load();
@@ -27,16 +28,28 @@ public class SkinSelect : MonoBehaviour
             Destroy(skin);
         }
 
+        string selectedSkin = PlayerPrefs.GetString("selectedSkin");
+        Debug.Log(selectedSkin);
+
         foreach(SkinObject skin in skinsObject.skins) {
             GameObject go;
 
             if(skin.requiredStars <= stars && skin.requiredSpaceJunk <= spaceJunk){
                 go = Instantiate(skinPrefab, scrollParent);
                 
+                if(skin.skinName == selectedSkin){
+                    go.transform.GetChild(0).gameObject.SetActive(true);
+                }
+
                 // add the ability to actually select the skin
-                // go.GetComponent<Button>().onClick.AddListener(
-                //     delegate { SceneManagerScript.Instance.ChangeScene(sceneLevel.sceneName); }
-                // );
+                go.GetComponent<Button>().onClick.AddListener(
+                    delegate {
+                        PlayerPrefs.SetString("selectedSkin", skin.skinName);
+                        
+                        // just recalls this methods to refresh entire UI
+                        OnEnable();
+                        }
+                );
             }else{
                 go = Instantiate(lockedSkinPrefab, scrollParent);
 

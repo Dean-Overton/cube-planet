@@ -12,7 +12,6 @@ public class RotateCollider : MonoBehaviour
 
     void Start(){
         planetContainer = GameObject.FindGameObjectWithTag("PlanetContainer");
-        // player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void OnTriggerEnter(Collider other)

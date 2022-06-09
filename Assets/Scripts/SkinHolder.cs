@@ -15,4 +15,5 @@ public class SkinObject {
     // image
 
     // actual skin prefab
+    public GameObject prefab;
 }
