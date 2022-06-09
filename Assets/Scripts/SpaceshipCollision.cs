@@ -20,7 +20,7 @@ public class SpaceshipCollision : MonoBehaviour
         // and spawn the player
         // NOTE: the player still needs to be place around the rocket
         // somewhere in the scene
-        _player=GameObject.FindGameObjectWithTag("Player");
+        // _player=GameObject.FindGameObjectWithTag("Player");
         _player.SetActive(false);
         
         _exhaust = GameObject.Find("Exhaust");

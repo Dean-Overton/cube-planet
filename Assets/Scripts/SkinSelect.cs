@@ -37,6 +37,8 @@ public class SkinSelect : MonoBehaviour
             if(skin.requiredStars <= stars && skin.requiredSpaceJunk <= spaceJunk){
                 go = Instantiate(skinPrefab, scrollParent);
                 
+                go.transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = skin.skinPreview;
+
                 if(skin.skinName == selectedSkin){
                     go.transform.GetChild(0).gameObject.SetActive(true);
                 }

@@ -12,6 +12,7 @@ TagManager:
   - RightCollider
   - LevelController
   - SpaceJunk
+  - UICanvas
   layers:
   - Default
   - TransparentFX

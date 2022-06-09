@@ -13,6 +13,7 @@ public class SkinObject {
     public int requiredSpaceJunk;
     
     // image
+    public Sprite skinPreview;
 
     // actual skin prefab
     public GameObject prefab;
