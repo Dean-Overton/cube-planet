@@ -10,6 +10,7 @@ public class DeathCollision : MonoBehaviour
             Destroy(other.gameObject);
 
             // trigger restart menu
+            UIManager.Instance.ShowDeathPopup();
         }
     }
 }

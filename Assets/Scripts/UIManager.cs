@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text levelCompletePopupRotCount;
     [SerializeField] private TMP_Text levelCompletePopupSpaceJunkCount;
     [SerializeField] private TextMeshProUGUI winMessageTMProUI;
+    [SerializeField] private Animator levelPausePopupAnimator;
+    [SerializeField] private Animator levelDeathPopupAnimator;
 
     public static UIManager Instance { get; private set; } // create static singleton
     public void UpdateBarrelDisplayUI(int barrels)
@@ -54,6 +56,18 @@ public class UIManager : MonoBehaviour
 
         winMessageTMProUI.text = string.Format("Nice Work! Level {0} Complete!", level); 
         levelCompletePopupAnimator.SetInteger("Stars", stars);
+    }
+
+    public void ShowPausePopup(){
+        levelPausePopupAnimator.gameObject.SetActive(true);
+    }
+
+    public void ClosePausePopup(){
+        levelPausePopupAnimator.gameObject.SetActive(false);
+    }
+
+    public void ShowDeathPopup(){
+        levelDeathPopupAnimator.gameObject.SetActive(true);
     }
 
     void Awake(){
