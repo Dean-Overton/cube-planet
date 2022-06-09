@@ -15,5 +15,7 @@ MonoBehaviour:
   themeName: Goldilocks
   difficulty: 0
   levels:
-  - sceneName: Test
+  - sceneName: Level1
     levelNumber: 1
+  - sceneName: Level2
+    levelNumber: 2

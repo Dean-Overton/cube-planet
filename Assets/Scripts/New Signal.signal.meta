@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Level2.unity.meta
+guid: c93af1418c432bc42a6a84056e31881b
+DefaultImporter:
+========
 guid: 6ccdd79dc17dfbc48bafff0442934255
 NativeFormatImporter:
+>>>>>>>> Polishing_player_movement:Assets/Scripts/New Signal.signal.meta
   externalObjects: {}
   mainObjectFileID: 11400000
   userData: 

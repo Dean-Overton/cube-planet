@@ -11,6 +11,7 @@ TagManager:
   - LeftCollider
   - RightCollider
   - LevelController
+  - SpaceJunk
   layers:
   - Default
   - TransparentFX

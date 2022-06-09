@@ -4,19 +4,19 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class LevelSelect : MonoBehaviour
+public class SkinSelect : MonoBehaviour
 {
     public ThemeLevelHolder themeObject;
-    [SerializeField] private GameObject levelPrefab;
-    [SerializeField] private GameObject lockedLevelPrefab;
+    [SerializeField] private GameObject skinPrefab;
+    [SerializeField] private GameObject lockedSkinPrefab;
     [SerializeField] private Transform scrollParent;
-    private List<GameObject> levelButtons = new List<GameObject>();
+    private List<GameObject> skins = new List<GameObject>();
     void OnEnable()
     {
         SaveLoad.Load();
 
-        foreach(GameObject levelButton in levelButtons){
-            Destroy(levelButton);
+        foreach(GameObject skin in skins){
+            Destroy(skin);
         }
 
         foreach(SceneObject sceneLevel in themeObject.levels) {
@@ -24,7 +24,6 @@ public class LevelSelect : MonoBehaviour
             GameObject go;
             
             if(level == null){
-                Debug.Log("No saved data for: "+sceneLevel.levelNumber);
                 level = new Level();
                 level.levelNumber = sceneLevel.levelNumber;
                 if(sceneLevel.levelNumber != 1){
@@ -36,19 +35,19 @@ public class LevelSelect : MonoBehaviour
             }
 
             if(level.unlocked){
-                go = Instantiate(levelPrefab, scrollParent);
-                go.transform.GetChild(0).GetComponent<TMP_Text>().text = sceneLevel.levelNumber.ToString();
+                go = Instantiate(skinPrefab, scrollParent);
+                // go.transform.GetChild(0).GetComponent<TMP_Text>().text = sceneLevel.levelNumber.ToString();
             
-                SetGameObjectProgress(go, level);
+                // SetGameObjectProgress(go, level);
             
-                go.GetComponent<Button>().onClick.AddListener(
-                    delegate { SceneManagerScript.Instance.ChangeScene(sceneLevel.sceneName); }
-                );
+                // go.GetComponent<Button>().onClick.AddListener(
+                //     delegate { SceneManagerScript.Instance.ChangeScene(sceneLevel.sceneName); }
+                // );
             }else{
-                go = Instantiate(lockedLevelPrefab, scrollParent);
+                go = Instantiate(lockedSkinPrefab, scrollParent);
             }
 
-            levelButtons.Add(go);
+            skins.Add(go);
         }
     }
 
