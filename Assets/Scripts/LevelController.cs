@@ -14,10 +14,20 @@ public class LevelController : MonoBehaviour
     [SerializeField] int threeStarRotations;
     [SerializeField] int twoStarRotations;
     [SerializeField] int oneStarRotations;
+    [SerializeField] public SkinHolder skinsObject;
 
     void Awake(){
         // initialise singleton instance
         if (Instance == null) Instance = this;
+
+        // set the players skin
+        string selectedSkin = PlayerPrefs.GetString("selectedSkin");
+        foreach(SkinObject skin in skinsObject.skins){
+            if(skin.skinName == selectedSkin){
+                GameObject respawnPoint = GameObject.FindGameObjectWithTag("Respawn");
+                GameObject player = Instantiate(skin.prefab, respawnPoint.transform.position, respawnPoint.transform.rotation, respawnPoint.transform);
+            }
+        }
     }
 
     void Start(){

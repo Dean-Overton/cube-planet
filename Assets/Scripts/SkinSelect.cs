@@ -6,72 +6,72 @@ using UnityEngine.UI;
 
 public class SkinSelect : MonoBehaviour
 {
-    public ThemeLevelHolder themeObject;
+    public SkinHolder skinsObject;
     [SerializeField] private GameObject skinPrefab;
     [SerializeField] private GameObject lockedSkinPrefab;
     [SerializeField] private Transform scrollParent;
     private List<GameObject> skins = new List<GameObject>();
+    private static int selectedSkinIndex;
     void OnEnable()
     {
         SaveLoad.Load();
+
+        // get stars and spaceJunk counts
+        int stars = SaveLoad.collectedStarsTotal;
+        int spaceJunk = SaveLoad.collectedSpaceJunkTotal;
+
+        // display these values in UI
+        transform.GetChild(2).GetChild(1).GetChild(1).GetComponent<TMP_Text>().text = stars.ToString();
+        transform.GetChild(2).GetChild(2).GetChild(1).GetComponent<TMP_Text>().text = spaceJunk.ToString();
 
         foreach(GameObject skin in skins){
             Destroy(skin);
         }
 
-        foreach(SceneObject sceneLevel in themeObject.levels) {
-            Level level = (Level)SaveLoad.savedLevels[sceneLevel.levelNumber];
+        string selectedSkin = PlayerPrefs.GetString("selectedSkin");
+        Debug.Log(selectedSkin);
+
+        foreach(SkinObject skin in skinsObject.skins) {
             GameObject go;
-            
-            if(level == null){
-                level = new Level();
-                level.levelNumber = sceneLevel.levelNumber;
-                if(sceneLevel.levelNumber != 1){
-                    level.unlocked = false;
+
+            if(skin.requiredStars <= stars && skin.requiredSpaceJunk <= spaceJunk){
+                go = Instantiate(skinPrefab, scrollParent);
+                
+                go.transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = skin.skinPreview;
+
+                if(skin.skinName == selectedSkin){
+                    go.transform.GetChild(0).gameObject.SetActive(true);
+                }
+
+                // add the ability to actually select the skin
+                go.GetComponent<Button>().onClick.AddListener(
+                    delegate {
+                        PlayerPrefs.SetString("selectedSkin", skin.skinName);
+                        
+                        // just recalls this methods to refresh entire UI
+                        OnEnable();
+                        }
+                );
+            }else{
+                go = Instantiate(lockedSkinPrefab, scrollParent);
+
+                if(skin.requiredStars == 0){
+                    go.transform.GetChild(3).gameObject.SetActive(false);
                 }else{
-                    level.unlocked = true;
-                    Level.current = level;
+                    go.transform.GetChild(3).GetChild(0).GetComponent<TMP_Text>().text = skin.requiredStars.ToString();
+                }
+                
+                if(skin.requiredSpaceJunk == 0){
+                    go.transform.GetChild(4).gameObject.SetActive(false);
+                }else{
+                    go.transform.GetChild(4).GetChild(0).GetComponent<TMP_Text>().text = skin.requiredSpaceJunk.ToString();
                 }
             }
 
-            if(level.unlocked){
-                go = Instantiate(skinPrefab, scrollParent);
-                // go.transform.GetChild(0).GetComponent<TMP_Text>().text = sceneLevel.levelNumber.ToString();
-            
-                // SetGameObjectProgress(go, level);
-            
-                // go.GetComponent<Button>().onClick.AddListener(
-                //     delegate { SceneManagerScript.Instance.ChangeScene(sceneLevel.sceneName); }
-                // );
-            }else{
-                go = Instantiate(lockedSkinPrefab, scrollParent);
-            }
+            // set name of skin
+            go.transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = skin.skinName.ToString();
 
             skins.Add(go);
-        }
-    }
-
-    // private void SetIndexProgress(int index, int starCount) {
-    //     SetGameObjectProgress(scrollParent.GetChild(index).gameObject, starCount);
-    // }
-    private void SetGameObjectProgress(GameObject go, Level level) {
-        Debug.Log("Progress stars: "+level.starCount);
-        
-        int star = 0;
-        Color newCol;
-        foreach (Transform starObj in go.transform.GetChild(1))
-            if (ColorUtility.TryParseHtmlString("#D6DDE5", out newCol)){
-                starObj.GetComponent<Image>().color = newCol;
-            }
-
-        
-        while (star < level.starCount) {
-            Debug.Log("nextstar");
-            if(ColorUtility.TryParseHtmlString("#FFBF66", out newCol)){
-                Debug.Log("changed colour");
-                go.transform.GetChild(1).GetChild(star).GetComponent<Image>().color = newCol;
-            }
-            star++;
         }
     }
 }

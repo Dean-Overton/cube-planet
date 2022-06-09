@@ -6,13 +6,11 @@ public class RotateCollider : MonoBehaviour
 {
     [SerializeField]
     GameObject planetContainer;
-    [SerializeField] private GameObject player;
 
     [SerializeField] private float _rollSpeed = 5;
 
     void Start(){
         planetContainer = GameObject.FindGameObjectWithTag("PlanetContainer");
-        // player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void OnTriggerEnter(Collider other)
@@ -41,8 +39,6 @@ public class RotateCollider : MonoBehaviour
         LevelController.Instance.addRotation();
 
         StartCoroutine(Roll(anchor, axis));
-
-        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     private IEnumerator Roll(Vector3 anchor, Vector3 axis) {
@@ -52,7 +48,5 @@ public class RotateCollider : MonoBehaviour
             planetContainer.transform.RotateAround(anchor, axis, _rollSpeed);
             yield return new WaitForSeconds(0.01f);
         }
-        
-        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 }
