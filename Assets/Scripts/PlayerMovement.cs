@@ -29,10 +29,6 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Mathf.Abs(verticalInput) > Mathf.Abs(horizontalInput) ? 0 : horizontalInput;
         verticalInput = Mathf.Abs(verticalInput) < Mathf.Abs(horizontalInput) ? 0 : verticalInput;
 #endif
-        // if (Input.touchCount > 0){
-        //     horizontalInput = Input.touches[0].deltaPosition.x;
-        //     verticalInput = Input.touches[0].deltaPosition.y;
-        // }
 
         //TODO: Slerp towards target orientation
         transform.rotation = targetOrientation;
@@ -41,19 +37,27 @@ public class PlayerMovement : MonoBehaviour
             //update the position
             targetPosition = transform.position+Vector3.left;
             targetOrientation = Quaternion.Euler(0,90,0);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime*movementSpeed);
+
         } else if(horizontalInput > 0){
             //update the position
             targetPosition = transform.position+Vector3.right;
             targetOrientation = Quaternion.Euler(0,-90,0);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime*movementSpeed);
         } else if(verticalInput > 0){
             //update the position
             targetPosition = transform.position+Vector3.forward;
             targetOrientation = Quaternion.Euler(0,180,0);
+            
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime*movementSpeed);
+
         } else if(verticalInput < 0){
             //update the position
             targetPosition = transform.position+Vector3.back;
             targetOrientation = Quaternion.Euler(Vector3.zero);
+           
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime*movementSpeed);
+
         }
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime*movementSpeed);
     }
 }
