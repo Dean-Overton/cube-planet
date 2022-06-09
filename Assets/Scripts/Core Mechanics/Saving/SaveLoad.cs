@@ -8,6 +8,9 @@ public static class SaveLoad {
 
     public static Hashtable savedLevels = new Hashtable();
 
+    public static int collectedSpaceJunkTotal = 0;
+    public static int collectedStarsTotal = 0;
+
     public static void Save(Level level) {
         if(savedLevels.ContainsKey(level.levelNumber)){
             // update old data
@@ -61,6 +64,8 @@ public static class SaveLoad {
     }
 
     public static void Load() {
+        collectedSpaceJunkTotal = 0;
+        collectedStarsTotal = 0;
         if(File.Exists(Application.persistentDataPath + "/savedLevels.goofy")) {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/savedLevels.goofy", FileMode.Open);
@@ -73,6 +78,10 @@ public static class SaveLoad {
             {   
                 Level level = (Level)SaveLoad.savedLevels[key];
                 int level_number = level.levelNumber;
+                int stars = level.starCount;
+                int spaceJunk = level.spaceJunk;
+                collectedSpaceJunkTotal += spaceJunk;
+                collectedStarsTotal += stars;
                 Debug.Log(string.Format("{0}: {1}", key, level_number));
             }
         }
