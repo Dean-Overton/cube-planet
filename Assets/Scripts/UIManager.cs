@@ -6,7 +6,7 @@ using System;
 
 public class UIManager : MonoBehaviour
 {   
-    [SerializeField] private TextMeshProUGUI barrelCounter;
+    [SerializeField] private GameObject barrelCheck;
     [SerializeField] private TextMeshProUGUI rotationsCounter;
     [SerializeField] private TextMeshProUGUI spaceJunkCounter;
     [SerializeField] private TextMeshProUGUI levelCompletePopupStarCount1;
@@ -20,14 +20,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Animator levelDeathPopupAnimator;
 
     public static UIManager Instance { get; private set; } // create static singleton
-    public void UpdateBarrelDisplayUI(int barrels)
+    public void UpdateBarrelDisplayUI()
     {
-        barrelCounter.text = "Barrels: " + barrels+ "/1"; 
+        barrelCheck.SetActive(true); 
     }
 
     public void UpdateSpaceJunkDisplayUI(int spaceJunk, int total)
     {
-        spaceJunkCounter.text = String.Format("Space Junk: {0}/{1}", spaceJunk, total);
+        spaceJunkCounter.text = String.Format("{0}/{1}", spaceJunk, total);
     }
 
     public void UpdateRotationsDisplayUI(int rotations)
@@ -88,8 +88,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
-        barrelCounter.text = "Barrels: 0/1";
         rotationsCounter.text = "Rotations: 0";
-        spaceJunkCounter.text = String.Format("Space Junk: 0/{0}", LevelController.Instance.GetTotalSpaceJunk());
+        spaceJunkCounter.text = String.Format("0/{0}", LevelController.Instance.GetTotalSpaceJunk());
     }
 }

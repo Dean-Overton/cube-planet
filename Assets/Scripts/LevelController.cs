@@ -80,7 +80,7 @@ public class LevelController : MonoBehaviour
 
     public void addBarrel(){
         ++_barrels;
-        UIManager.Instance.UpdateBarrelDisplayUI(_barrels);
+        UIManager.Instance.UpdateBarrelDisplayUI();
     }
 
     public int GetTotalSpaceJunk(){
