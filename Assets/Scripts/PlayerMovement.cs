@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {   
     [SerializeField]
     private float movementSpeed = 1;
-    // [SerializeField] private FloatingJoystick _joystick;
+    [SerializeField] private FloatingJoystick _joystick;
     Vector3 targetPosition;
     //Default rotation
     Quaternion targetOrientation = Quaternion.Euler(Vector3.zero);
@@ -14,19 +14,19 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         targetPosition = transform.position;
-        // _joystick = GameObject.FindGameObjectWithTag("UICanvas").transform.GetChild(0).gameObject;
+        _joystick = GameObject.FindObjectOfType<FloatingJoystick>();
     }
 
     void Update()
     {
-        // Vector3 direction = Vector3.forward * _joystick.Vertical + Vector3.right * _joystick.Horizontal;
+        Vector3 direction = Vector3.forward * _joystick.Vertical + Vector3.right * _joystick.Horizontal;
 
 #if UNITY_EDITOR
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 #else
-        // float horizontalInput = _joystick.Horizontal;
-        // float verticalInput = _joystick.Vertical;
+        float horizontalInput = _joystick.Horizontal;
+        float verticalInput = _joystick.Vertical;
 
         horizontalInput = Mathf.Abs(verticalInput) > Mathf.Abs(horizontalInput) ? 0 : horizontalInput;
         verticalInput = Mathf.Abs(verticalInput) < Mathf.Abs(horizontalInput) ? 0 : verticalInput;

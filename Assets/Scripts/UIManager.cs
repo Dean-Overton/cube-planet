@@ -22,12 +22,14 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; } // create static singleton
     public void UpdateBarrelDisplayUI()
     {
-        barrelCheck.SetActive(true); 
+        barrelCheck.SetActive(true);
+        SoundEffects.Instance.PlayCollectibleSound();
     }
 
     public void UpdateSpaceJunkDisplayUI(int spaceJunk, int total)
     {
         spaceJunkCounter.text = String.Format("{0}/{1}", spaceJunk, total);
+        SoundEffects.Instance.PlayCollectibleSound();
     }
 
     public void UpdateRotationsDisplayUI(int rotations)
@@ -45,6 +47,7 @@ public class UIManager : MonoBehaviour
     int threeStar)
     {
         levelCompletePopupAnimator.gameObject.SetActive(true);
+        SoundEffects.Instance.PlayWinSound();
 
         levelCompletePopupRotCount.text = "Rotations: " + rotations;
 
@@ -60,10 +63,12 @@ public class UIManager : MonoBehaviour
 
     public void ShowPausePopup(){
         levelPausePopupAnimator.gameObject.SetActive(true);
+        SoundEffects.Instance.PlayButtonClick();
     }
 
     public void ClosePausePopup(){
         levelPausePopupAnimator.gameObject.SetActive(false);
+        SoundEffects.Instance.PlayButtonClick();
     }
 
     public void ShowDeathPopup(){
@@ -76,19 +81,23 @@ public class UIManager : MonoBehaviour
     } 
 
     public void RestartScene(){
+        SoundEffects.Instance.PlayButtonClick();
         SceneManagerScript.Instance.RestartScene();
     }
     public void LoadLevelMenu(){
+        SoundEffects.Instance.PlayButtonClick();
         SceneManagerScript.Instance.ChangeScene("MainMenu");
     }
     public void LoadNextLevel(){
+        SoundEffects.Instance.PlayButtonClick();
         SceneManagerScript.Instance.LoadNextLevel();
     }
 
     // Start is called before the first frame update
     void Start()
-    { 
+    {   
         rotationsCounter.text = "Rotations: 0";
         spaceJunkCounter.text = String.Format("0/{0}", LevelController.Instance.GetTotalSpaceJunk());
+        SoundEffects.Instance.PlayGameMusic();
     }
 }

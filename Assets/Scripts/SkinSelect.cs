@@ -47,7 +47,7 @@ public class SkinSelect : MonoBehaviour
                 go.GetComponent<Button>().onClick.AddListener(
                     delegate {
                         PlayerPrefs.SetString("selectedSkin", skin.skinName);
-                        
+                        SoundEffects.Instance.PlayButtonClick();
                         // just recalls this methods to refresh entire UI
                         OnEnable();
                         }

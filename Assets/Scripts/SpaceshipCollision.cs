@@ -25,6 +25,8 @@ public class SpaceshipCollision : MonoBehaviour
         
         _exhaust = GameObject.Find("Exhaust");
 
+        SoundEffects.Instance.PlayRocketSound();
+
         // saves current point as the landing point
         landingPoint = transform.position;
         
@@ -44,6 +46,7 @@ public class SpaceshipCollision : MonoBehaviour
 
     void Update(){
         if(_landing && Vector3.Distance(transform.position, landingPoint) < 0.1){
+            SoundEffects.Instance.StopRocketSound();
             _landing = false;
             _player.SetActive(true);
             _exhaust.SetActive(false);
