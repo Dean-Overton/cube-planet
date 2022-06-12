@@ -10,6 +10,11 @@ public class PlayerMovement : MonoBehaviour
     Vector3 targetPosition;
     //Default rotation
     Quaternion targetOrientation = Quaternion.Euler(Vector3.zero);
+    private Animator _anim;
+
+    private void Awake() {
+        _anim = GetComponentInChildren<Animator>();
+    }
 
     private void Start()
     {
@@ -59,7 +64,12 @@ public class PlayerMovement : MonoBehaviour
             targetOrientation = Quaternion.Euler(Vector3.zero);
            
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime*movementSpeed);
+        }
 
+        if (Mathf.Abs(horizontalInput) > 0 || Mathf.Abs(verticalInput) > 0) {
+            _anim.SetBool("isWalking", true);
+        } else {
+             _anim.SetBool("isWalking", false);
         }
     }
 }
