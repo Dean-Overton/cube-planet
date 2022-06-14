@@ -32,9 +32,20 @@ public class PlayerMovement : MonoBehaviour
 #else
         float horizontalInput = _joystick.Horizontal;
         float verticalInput = _joystick.Vertical;
-
-        horizontalInput = Mathf.Abs(verticalInput) > Mathf.Abs(horizontalInput) ? 0 : horizontalInput;
-        verticalInput = Mathf.Abs(verticalInput) < Mathf.Abs(horizontalInput) ? 0 : verticalInput;
+        
+        if(horizontalInput >= 0 && verticalInput >= 0){
+            // 1st quadrant
+           verticalInput = 0;
+        }else if(horizontalInput < 0 && verticalInput < 0){
+            // 3rd quadrant
+           verticalInput = 0;
+        }else if(horizontalInput >= 0 && verticalInput < 0){
+            // 4th quadrant 
+            horizontalInput = 0;
+        }else if(horizontalInput < 0 && verticalInput >= 0){
+            // 2nd quadrant
+            horizontalInput = 0;
+        }
 #endif
 
         //TODO: Slerp towards target orientation
