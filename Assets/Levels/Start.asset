@@ -19,3 +19,15 @@ MonoBehaviour:
     levelNumber: 1
   - sceneName: Level2
     levelNumber: 2
+  - sceneName: Level3
+    levelNumber: 3
+  - sceneName: Level4
+    levelNumber: 4
+  - sceneName: Level4
+    levelNumber: 5
+  - sceneName: Level4
+    levelNumber: 6
+  - sceneName: Level4
+    levelNumber: 7
+  - sceneName: Level4
+    levelNumber: 8

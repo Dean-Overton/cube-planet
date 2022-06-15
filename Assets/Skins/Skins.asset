@@ -13,20 +13,21 @@ MonoBehaviour:
   m_Name: Skins
   m_EditorClassIdentifier: 
   skins:
-  - skinName: Robot
-    requiredStars: 3
+  - skinName: Robot1
+    requiredStars: 0
     requiredSpaceJunk: 0
     skinPreview: {fileID: 21300000, guid: 56930755a42e8dd478047bb92590ab68, type: 3}
-    prefab: {fileID: 7772347226610344611, guid: 861e9e1a5e86795469c88592667cc860,
+    prefab: {fileID: 7772347226610344611, guid: bafe6f37b03ed5c4f92469a5756f7997,
       type: 3}
-  - skinName: Alien
+  - skinName: Robot2
     requiredStars: 6
     requiredSpaceJunk: 0
     skinPreview: {fileID: 21300000, guid: 35d15c742b4a83d428ea40a612936a3e, type: 3}
-    prefab: {fileID: 7772347226610344611, guid: bafe6f37b03ed5c4f92469a5756f7997,
+    prefab: {fileID: 7772347226610344611, guid: a2288b5eee12fa043a5dd5944fa2fcdd,
       type: 3}
-  - skinName: Cowboy
+  - skinName: Alien
     requiredStars: 0
-    requiredSpaceJunk: 10
-    skinPreview: {fileID: 0}
-    prefab: {fileID: 0}
+    requiredSpaceJunk: 6
+    skinPreview: {fileID: 21300000, guid: dc5eafc164c46ba43877f167e5e19d35, type: 3}
+    prefab: {fileID: 7772347226610344611, guid: cc8d7de5c19a18f4fb49c113cbe9f31e,
+      type: 3}
