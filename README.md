@@ -18,3 +18,16 @@ Inspiration:
 2) Assets/Levels/*TheThemeTheLevelIs* - Add the scene name and level number
 3) Add scene to File/BuildSettings 'ScenesInBuild'.
 
+### Add new skins
+
+1) Create Object in Magica voxel, (40x40x40 block preferably)
+
+2) To get the skin preview image export as 'iso' from magica voxel.
+
+3) Export as .obj into assets/models to get the 3D object.
+
+4) Add player movement and create a prefab.
+
+5) In assets/skins/Start object add skinName, preview from above, actual prefab, and the requirements to unlock. 
+
+WARNING: the requirements must be EITHER stars OR spaceJunk. One of these fields must be set to zero. TODO: resolve this issue.

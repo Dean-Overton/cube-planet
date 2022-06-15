@@ -7,14 +7,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float movementSpeed = 1;
     [SerializeField] private FloatingJoystick _joystick;
+    Vector3 targetPosition;
+    //Default rotation
+    Quaternion targetOrientation = Quaternion.Euler(Vector3.zero);
 
     private void Start()
     {
         targetPosition = transform.position;
+        _joystick = GameObject.FindObjectOfType<FloatingJoystick>();
     }
-    Vector3 targetPosition;
-    //Default rotation
-    Quaternion targetOrientation = Quaternion.Euler(Vector3.zero);
+
     void Update()
     {
         Vector3 direction = Vector3.forward * _joystick.Vertical + Vector3.right * _joystick.Horizontal;

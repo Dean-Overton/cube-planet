@@ -42,7 +42,10 @@ public class LevelSelect : MonoBehaviour
                 SetGameObjectProgress(go, level);
             
                 go.GetComponent<Button>().onClick.AddListener(
-                    delegate { SceneManagerScript.Instance.ChangeScene(sceneLevel.sceneName); }
+                    delegate { 
+                        SceneManagerScript.Instance.ChangeScene(sceneLevel.sceneName);
+                        SoundEffects.Instance.PlayButtonClick();
+                    }
                 );
             }else{
                 go = Instantiate(lockedLevelPrefab, scrollParent);

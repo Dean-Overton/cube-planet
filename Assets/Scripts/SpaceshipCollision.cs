@@ -20,10 +20,12 @@ public class SpaceshipCollision : MonoBehaviour
         // and spawn the player
         // NOTE: the player still needs to be place around the rocket
         // somewhere in the scene
-        _player=GameObject.FindGameObjectWithTag("Player");
+        // _player=GameObject.FindGameObjectWithTag("Player");
         _player.SetActive(false);
         
         _exhaust = GameObject.Find("Exhaust");
+
+        SoundEffects.Instance.PlayRocketSound();
 
         // saves current point as the landing point
         landingPoint = transform.position;
@@ -44,6 +46,7 @@ public class SpaceshipCollision : MonoBehaviour
 
     void Update(){
         if(_landing && Vector3.Distance(transform.position, landingPoint) < 0.1){
+            SoundEffects.Instance.StopRocketSound();
             _landing = false;
             _player.SetActive(true);
             _exhaust.SetActive(false);
