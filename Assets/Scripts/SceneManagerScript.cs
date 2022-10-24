@@ -4,7 +4,9 @@ using UnityEngine;
 public class SceneManagerScript : MonoBehaviour
 {
     public static SceneManagerScript Instance { get; private set; } // create static singleton
-    
+
+    [SerializeField] private LevelLoader levelLoaderInstance;
+
     private void Awake() {
         if (Instance != null && Instance != this)
             Destroy(this.gameObject);
@@ -14,19 +16,15 @@ public class SceneManagerScript : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
     public void RestartScene(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        levelLoaderInstance.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void LoadNextLevel(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        levelLoaderInstance.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
     public void ChangeScene (int sceneIndex) {
-        // TODO: Play Smooth Transition animation
-
-        SceneManager.LoadScene(sceneIndex);
+        levelLoaderInstance.LoadScene(sceneIndex);
     }
     public void ChangeScene (string sceneName) {
-        // TODO: Play Smooth Transition animation
-
-        SceneManager.LoadScene(sceneName);
+        levelLoaderInstance.LoadScene(sceneName);
     }
 }
